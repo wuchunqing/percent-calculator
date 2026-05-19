@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator | Online Percent Calculator</title>
+    <meta name="description" content="Free online percentage calculator. Calculate percentages, percentage increase, decrease, and discounts easily.">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 py-10">
+        <div class="bg-white rounded-xl shadow p-6">
+            <h1 class="text-2xl font-bold text-center mb-6">Percentage Calculator</h1>
+
+            <!-- 计算1：What is X% of Y? -->
+            <div class="mb-6 p-4 border rounded-lg">
+                <h2 class="font-semibold mb-2">What is X% of Y?</h2>
+                <input id="p1" type="number" placeholder="Percentage" class="w-full p-2 border rounded mb-2">
+                <input id="n1" type="number" placeholder="Number" class="w-full p-2 border rounded mb-2">
+                <button onclick="calc1()" class="bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+                <div id="res1" class="mt-2 font-medium"></div>
+            </div>
+
+            <!-- 计算2：X is what % of Y? -->
+            <div class="mb-6 p-4 border rounded-lg">
+                <h2 class="font-semibold mb-2">X is what % of Y?</h2>
+                <input id="p2" type="number" placeholder="Value X" class="w-full p-2 border rounded mb-2">
+                <input id="n2" type="number" placeholder="Value Y" class="w-full p-2 border rounded mb-2">
+                <button onclick="calc2()" class="bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+                <div id="res2" class="mt-2 font-medium"></div>
+            </div>
+
+            <!-- 计算3：Percentage increase/decrease -->
+            <div class="mb-6 p-4 border rounded-lg">
+                <h2 class="font-semibold mb-2">Percentage Change</h2>
+                <input id="n3a" type="number" placeholder="Start Value" class="w-full p-2 border rounded mb-2">
+                <input id="n3b" type="number" placeholder="End Value" class="w-full p-2 border rounded mb-2">
+                <button onclick="calc3()" class="bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+                <div id="res3" class="mt-2 font-medium"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calc1() {
+            let p = document.getElementById('p1').value;
+            let n = document.getElementById('n1').value;
+            let r = (p / 100) * n;
+            document.getElementById('res1').innerText = `Result: ${r}`;
+        }
+        function calc2() {
+            let x = document.getElementById('p2').value;
+            let y = document.getElementById('n2').value;
+            let r = (x / y) * 100;
+            document.getElementById('res2').innerText = `Result: ${r.toFixed(2)}%`;
+        }
+        function calc3() {
+            let a = document.getElementById('n3a').value;
+            let b = document.getElementById('n3b').value;
+            let r = ((b - a) / a) * 100;
+            document.getElementById('res3').innerText = `Change: ${r.toFixed(2)}%`;
+        }
+    </script>
+</body>
+</html>
